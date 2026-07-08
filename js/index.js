@@ -27,12 +27,11 @@ const activarClickEnBotones = () => {
     // Si encontramos botones, les agregamos un evento click
     if(botonesAgregar !== null){
         // Recorremos cada botón y le agregamos un evento click
-        botonesAgregar.forEach((button)=>{
+        botonesAgregar.forEach((button) => {
             // Cuando se hace click en el botón
-            button.addEventListener("click", (e)=>{
+            button.addEventListener("click", (e) => {
                 // Llamamos a la función agregarAlCarrito con el id del producto
                 agregarAlCarrito(e.target.id)
-
             })
         })
     }
