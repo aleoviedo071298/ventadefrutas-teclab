@@ -1,3 +1,19 @@
+// Creamos un array vacío de productos y definimos la URL del archivo JSON que contiene los productos
+const productos = []
+const URL = "http://127.0.0.1:5500/js/productos.json"
+
+// Usamos fetch para obtener los productos desde el archivo JSON
+const obtenerProductos = () => {
+    fetch(URL)
+        .then(response => response.json())
+        .then(data => {
+            //guardamos los productos en el array productos
+            productos.push(...data)
+        })
+        // Una vez que tenemos los productos, llamamos a la función cargarProductos para mostrarlos en pantalla
+        .then (() => cargarProductos(productos))
+}
+
 // Buscamos en el HTML el div que tiene la clase container
 const container = document.querySelector("div.container")
 
@@ -51,4 +67,4 @@ const cargarProductos = (array) => {
 }
 
 // Ejecutamos la función usando el array productos
-cargarProductos(productos);
+obtenerProductos();
